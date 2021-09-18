@@ -1,0 +1,84 @@
+<html>
+     <head>
+          <title> Registration_Form </title>
+     </head>
+     <body >
+         <table style="width:50%;border:4px solid black ;text-align:center; background-color:lightblue ;margin-left: auto;margin-right: auto;">
+            <tr>
+            <td>
+                <h1 style="color :green">REGISTRATION FORM</h1>
+                <form name="regform">
+                   <label>First Name:<input type="text" name="fname"></label><br><br>
+                   <label>Last Name:<input type="text" name="lname"></label><br><br>
+                   <label>Password:<input type="password" name="pword"></label><br><br>
+                   <label>Confirm Password:<input type="password" name="cpword"></label><br><br>
+                   Gender:&nbsp;&nbsp;
+                   <label><input type="radio" name="gender" value="male">Male</label>&nbsp;&nbsp;
+                   <label><input type="radio" name="gender" value="female">Female</label>&nbsp;&nbsp;<br><br>
+                   Languages Known:&nbsp;&nbsp;
+                   <label><input type="checkbox" name="lknown" value="telugu">Telugu</label>&nbsp;&nbsp;
+                   <label><input type="checkbox" name="lknown" value="hindi">Hindi</label>&nbsp;&nbsp;
+                   <label><input type="checkbox" name="lknown" value="english">English</label>&nbsp;&nbsp;
+                   <label><input type="checkbox" name="lknown" value="tamil">Tamil</label>&nbsp;&nbsp;<br><br>
+                   <label>Date of Birth:<input type="date" name="dob"></label><br><br><br><br>
+                   <label>Mobile Number:<input type="text" name="mnumber"></label><br><br>
+                   <label>Address:<textarea row="4" columns="50" name="address"></textarea></label><br>
+                   <br><br><br>
+                   <input type="button" value="Submit" onclick="regValidation()">&nbsp;&nbsp;&nbsp;
+                   <input type="reset" value="Reset">
+                </form>
+                  
+             </td>
+             </tr>
+      </body>
+      <script type="text/javascript">
+            function regValidation() {
+               
+               var name1 = document.regform.fname.value;
+               var name2 = document.regform.lname.value;
+               var pwd = document.regform.pword.value;
+               var cpwd = document.regform.cpword.value;
+               var gender1 = document.regform.gender[0].checked;
+               var gender2 = document.regform.gender[1].checked;
+               var lang1 = document.regform.lknown[0].checked;
+               var lang2 = document.regform.lknown[1].checked;
+               var lang3 = document.regform.lknown[2].checked;
+               var lang4 = document.regform.lknown[3].checked;
+               var dateofbirth = document.regform.dob.value;
+               var mobile = document.regform.mnumber.value;
+               var addr = document.regform.address.value;
+
+               
+               if(name1.length == 0||name2.length == 0){
+                  alert("Please enter first name and last name.");
+               } else if(name1.length < 2 || name2.length < 2){
+                  alert("First name and last name must contain above 2 characters.");
+               } else if(pwd.length == 0 || cpwd.length == 0){
+                  alert("Please enter password and confirm password.");
+               } else if(pwd.length < 5 || cpwd.length < 5){
+                  alert("Password must contain above 5 characters.");
+               } else if(pwd != cpwd){
+                  alert("Password miss match.");
+               } else if(gender1 == false && gender2 == false){
+                  alert("Choose gender.");
+               } else if(lang1 == false && lang2 == false && lang3 == false && lang4 == false){
+                  alert("Choose language.");
+               } else if(dateofbirth.length == 0){
+                  alert("Please mention date of birth");
+               } else if(mobile == " " || mobile.length < 10){
+                  alert("Please enter valid mobile number.")
+               } else if(addr.length == 0){
+                  alert("Please enter address.")
+               } else {
+                  alert("Form submitted successfully..........")
+               }
+            }
+
+         
+      </script>
+   </html>
+
+
+
+                  
+​
